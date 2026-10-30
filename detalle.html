@@ -4,53 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle del Cómic - CÓMIC HUB</title>
-    <!-- Bootstrap 5 CDN -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-light">
 
-    <!-- Header / Barra de navegación -->
-    <header class="bg-dark text-white py-3 shadow-sm">
+    <!-- Cabecera / Navegación -->
+    <header class="bg-white border-bottom shadow-sm py-3 mb-4">
         <div class="container d-flex justify-content-between align-items-center">
-            <h1 class="h4 mb-0 fw-bold">CÓMIC HUB</h1>
-            <a href="index.html" class="btn btn-outline-light btn-sm">Volver al Catálogo</a>
+            <h1 class="h4 text-primary m-0 fw-bold">CÓMIC HUB 🔍</h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-dark" href="index.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="cronologias.html">Cronologías</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="personajes.html">Personajes</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#">Mi Biblioteca</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Contenido Principal: Detalle del Cómic -->
-    <main class="container my-5">
-        <div class="row g-4 align-items-center bg-white p-4 rounded shadow-sm border-0">
-            <!-- Columna de Imagen / Portada -->
-            <div class="col-md-4 text-center">
-                <div class="bg-secondary text-white d-flex align-items-center justify-content-center rounded" style="height: 400px;">
-                    <span class="fs-5">[ Portada del Cómic ]</span>
+    <!-- Contenido Principal -->
+    <main class="container my-4">
+        <!-- Botón Volver -->
+        <div class="mb-3">
+            <a href="index.html" class="btn btn-outline-secondary btn-sm">&larr; Volver al Catálogo</a>
+        </div>
+
+        <div class="card shadow-sm border-0 p-4">
+            <div class="row g-4 align-items-center">
+                <!-- Portada -->
+                <div class="col-md-4">
+                    <div class="bg-secondary text-white d-flex align-items-center justify-content-center rounded" style="height: 350px;">
+                        <span>[ Portada del Cómic ]</span>
+                    </div>
                 </div>
-            </div>
-            <!-- Columna de Información -->
-            <div class="col-md-8">
-                <span class="badge bg-primary mb-2">Destacado</span>
-                <h2 class="fw-bold mb-3">Título del Cómic</h2>
-                <p class="text-muted mb-4">Aquí puedes encontrar la sinopsis detallada de la obra, el universo al que pertenece, detalles de los autores, arcos argumentales y datos clave para los lectores que desean sumergirse en la historia.</p>
-                <ul class="list-unstyled mb-4">
-                    <li><strong>Guion:</strong> Autor Principal</li>
-                    <li><strong>Ilustración:</strong> Artista / Dibujante</li>
-                    <li><strong>Editorial / Sello:</strong> Editorial de Cómics</li>
-                </ul>
-                <button class="btn btn-dark">Leer Ahora</button>
+                <!-- Información del Cómic -->
+                <div class="col-md-8">
+                    <span class="badge bg-primary mb-2">Destacado</span>
+                    <h2 class="fw-bold mb-3">Título del Cómic</h2>
+                    <p class="text-muted mb-4">
+                        Aquí puedes encontrar la sinopsis detallada de la obra, el universo al que pertenece, detalles de los autores, arcos argumentales y datos clave para los lectores que desean sumergirse en la historia.
+                    </p>
+                    
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><strong>Guion:</strong> Autor Principal</li>
+                        <li class="mb-2"><strong>Ilustración:</strong> Artista / Dibujante</li>
+                        <li class="mb-2"><strong>Editorial / Sello:</strong> Editorial de Cómics</li>
+                    </ul>
+
+                    <a href="#" class="btn btn-dark">Leer Ahora</a>
+                </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3 mt-auto">
+    <!-- Pie de página -->
+    <footer class="bg-white border-top text-center py-3 mt-5">
         <div class="container">
-            <p class="mb-0 small">&copy; 2026 CÓMIC HUB. Todos los derechos reservados. TP3 - Programación Web.</p>
+            <p class="text-muted m-0 small">&copy; 2026 CÓMIC HUB. Todos los derechos reservados. TP3 - Programación Web.</p>
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle CDN -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

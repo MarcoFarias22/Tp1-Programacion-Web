@@ -24,11 +24,21 @@
 
 ---
 
-### 📌 TP5 (Procesamiento de Formularios & Seguridad OWASP)
-- **Funcionalidad GET:** Implementación del formulario de búsqueda dinámica en `busqueda-avanzada.php` sanitizando parámetros `$_GET`.
-- **Funcionalidad POST:** Procesamiento del formulario de contacto en `acerca-de.php` capturando entradas mediante `$_POST`.
-- **Seguridad Web (OWASP Top 10 - XSS):** 
-  - Creación de helper de sanitización en `includes/functions.php`.
-  - Limpieza estricta de entradas con `htmlspecialchars()`, `trim()` y `stripslashes()`.
-  - Validación de email con `filter_var(..., FILTER_VALIDATE_EMAIL)`.
-- **Persistencia & UX:** Mantenimiento de valores en campos de formulario tras envíos fallidos y alertas dinámicas de éxito o error con Bootstrap.
+## 🔒 Entrega Clase 5 / TP N.º 5: Procesamiento de Formularios y Seguridad Web (PHP & OWASP Top 10)
+
+Todo el desarrollo correspondiente a esta entrega se encuentra en la carpeta obligatoria `/clase5/`.
+
+### 🛠️ Funcionalidades e Implementaciones
+1. **Envío por POST (`acerca-de.php`):**
+   - Formulario de contacto y sugerencias.
+   - Validación en servidor (`empty()`, formato de email con `validar_email()`).
+   - Mantenimiento de la persistencia de datos en inputs tras fallos de validación.
+   - Mensajes visuales de retroalimentación (alertas Bootstrap de éxito/error).
+
+2. **Envío por GET (`busqueda-avanzada.php`):**
+   - Módulo de filtro y búsqueda dinámica por título, editorial y año.
+   - Captura y rendering sanitizado de parámetros recibidos vía URL (`$_GET`).
+
+3. **Seguridad Web & Sanitización OWASP (XSS):**
+   - Helper centralizado en `includes/functions.php`.
+   - Limpieza de entradas `$_POST` y `$_GET` utilizando `htmlspecialchars()`, `trim()` y `stripslashes()`.

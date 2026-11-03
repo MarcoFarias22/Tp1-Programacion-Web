@@ -1,222 +1,52 @@
 <?php
-// Configuración de título dinámico (SSR básico - Requisito C.1 del TP4)
 $titulo_pagina = "Búsqueda Avanzada - CÓMIC HUB";
-
-// Inclusión de la cabecera dinámica (SSI - Requisito B.3 del TP4)
 require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/functions.php';
+
+// Captura y sanitización estricta de parámetros GET
+$query      = sanitizar_texto($_GET['q'] ?? '');
+$editorial  = sanitizar_texto($_GET['editorial'] ?? 'todas');
+$anio_desde = sanitizar_texto($_GET['anio_desde'] ?? '');
+$busqueda_realizada = isset($_GET['buscar']);
 ?>
 
-<!-- Contenido Principal -->
 <main class="container my-4 flex-grow-1">
-    <!-- Migas de pan -->
-    <nav aria-label="breadcrumb" class="mb-3">
-        <ol class="breadcrumb mb-0 small text-muted">
-            <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none">Catálogo</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Búsqueda avanzada</li>
-        </ol>
-    </nav>
+    <h2 class="h3 fw-bold text-dark border-bottom pb-2 mb-3">Búsqueda Avanzada (Envío GET)</h2>
 
-    <!-- Encabezado de la Sección -->
-    <div class="mb-4">
-        <h2 class="fw-bold text-dark">Cada historia empieza con una búsqueda.</h2>
-        <p class="text-muted">Encuentra tu próximo cómic por título, editorial, época o tipo de arco argumental.</p>
-    </div>
-
-    <div class="row g-4">
-        <!-- Columna Izquierda: Formulario de Filtros Avanzados -->
-        <div class="col-lg-8">
-            <div class="card border-0 shadow-sm p-4 bg-white">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="h5 fw-bold m-0 text-dark">🔍 Búsqueda avanzada</h3>
-                    <span class="text-muted small">Todos los campos son opcionales</span>
-                </div>
-
-                <form action="busqueda-avanzada.php" method="GET">
-                    <!-- 01. ¿Qué historia estás buscando? -->
-                    <div class="mb-4">
-                        <label for="search-input" class="form-label fw-bold small text-muted">01 ¿QUÉ HISTORIA ESTÁS BUSCANDO?</label>
-                        <p class="text-muted small mb-2">Busca por título, personaje, autor o palabra clave.</p>
-                        <div class="input-group">
-                            <input type="text" id="search-input" name="q" class="form-control" value="Batman" placeholder="Ej: Batman, Spider-Man...">
-                            <button class="btn btn-outline-secondary" type="button" onclick="document.getElementById('search-input').value=''">✕</button>
-                        </div>
-                    </div>
-
-                    <!-- 02. Editoriales -->
-                    <div class="mb-4">
-                        <label class="form-label fw-bold small text-muted">02 EDITORIALES</label>
-                        <p class="text-muted small mb-2">Selecciona una o varias editoriales. Si no eliges ninguna, buscaremos en todas.</p>
-                        
-                        <!-- Badges seleccionadas -->
-                        <div class="d-flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-primary d-flex align-items-center gap-1 p-2">
-                                DC Comics <a href="#" class="text-white text-decoration-none ms-1">✕</a>
-                            </span>
-                            <span class="badge bg-primary d-flex align-items-center gap-1 p-2">
-                                ECC Ediciones <a href="#" class="text-white text-decoration-none ms-1">✕</a>
-                            </span>
-                        </div>
-
-                        <!-- Opciones de Checkboxes -->
-                        <div class="row g-2">
-                            <div class="col-6 col-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="ed-dc" checked>
-                                    <label class="form-check-label small" for="ed-dc">DC Comics <span class="text-muted">(1.452)</span></label>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="ed-marvel">
-                                    <label class="form-check-label small" for="ed-marvel">Marvel <span class="text-muted">(1.820)</span></label>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="ed-image">
-                                    <label class="form-check-label small" for="ed-image">Image Comics <span class="text-muted">(654)</span></label>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="ed-ecc" checked>
-                                    <label class="form-check-label small" for="ed-ecc">ECC Ediciones <span class="text-muted">(1.042)</span></label>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="ed-norma">
-                                    <label class="form-check-label small" for="ed-norma">Norma Editorial <span class="text-muted">(325)</span></label>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="ed-planeta">
-                                    <label class="form-check-label small" for="ed-planeta">Planeta Cómic <span class="text-muted">(1.204)</span></label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 03. Años de publicación -->
-                    <div class="mb-4">
-                        <label class="form-label fw-bold small text-muted">03 AÑOS DE PUBLICACIÓN</label>
-                        <p class="text-muted small mb-2">Ajusta la fecha de publicación original, serie o sus reediciones.</p>
-                        <div class="row align-items-center g-3">
-                            <div class="col-6 col-md-3">
-                                <label for="year-from" class="form-label small text-muted m-0">Desde</label>
-                                <input type="number" id="year-from" class="form-control form-control-sm" value="1986">
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <label for="year-to" class="form-label small text-muted m-0">Hasta</label>
-                                <input type="number" id="year-to" class="form-control form-control-sm" value="2024">
-                            </div>
-                            <div class="col-12 col-md-6 pt-md-3">
-                                <input type="range" class="form-range" min="1930" max="2026" value="2024">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 04. Arcos argumentales -->
-                    <div class="mb-4">
-                        <label class="form-label fw-bold small text-muted">04 ARCOS ARGUMENTALES</label>
-                        <p class="text-muted small mb-2">Elige el tipo de historia que prefieres. Puedes combinar varias categorías.</p>
-                        
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="card p-3 border-primary bg-light">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="arco-origen" checked>
-                                        <label class="form-check-label fw-bold" for="arco-origen">Origen</label>
-                                    </div>
-                                    <span class="text-muted small ps-4">El comienzo de un héroe</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card p-3 border-primary bg-light">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="arco-eventos" checked>
-                                        <label class="form-check-label fw-bold" for="arco-eventos">Grandes eventos</label>
-                                    </div>
-                                    <span class="text-muted small ps-4">Historias que lo cambian todo</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card p-3 border">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="arco-crossover">
-                                        <label class="form-check-label fw-bold" for="arco-crossover">Crossover</label>
-                                    </div>
-                                    <span class="text-muted small ps-4">Unión entre varios héroes</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card p-3 border">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="arco-independiente">
-                                        <label class="form-check-label fw-bold" for="arco-independiente">Saga independiente</label>
-                                    </div>
-                                    <span class="text-muted small ps-4">Una historia autoconclusiva</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Botones de Acción -->
-                    <div class="d-flex justify-content-between align-items-center pt-3 border-top">
-                        <button type="reset" class="btn btn-link text-decoration-none text-muted p-0">↺ Limpiar filtros</button>
-                        <button type="submit" class="btn btn-primary px-4">Aplicar filtros</button>
-                    </div>
-                </form>
+    <!-- Formulario GET -->
+    <form action="busqueda-avanzada.php" method="GET" class="bg-white p-4 rounded shadow-sm mb-4">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="q" class="form-label fw-bold small text-muted">Palabra clave / Título</label>
+                <input type="text" class="form-control" id="q" name="q" value="<?= $query ?>" placeholder="Buscar por título o personaje...">
+            </div>
+            <div class="col-md-3">
+                <label for="editorial" class="form-label fw-bold small text-muted">Editorial</label>
+                <select class="form-select" id="editorial" name="editorial">
+                    <option value="todas" <?= $editorial === 'todas' ? 'selected' : '' ?>>Todas</option>
+                    <option value="marvel" <?= $editorial === 'marvel' ? 'selected' : '' ?>>Marvel Comics</option>
+                    <option value="dc" <?= $editorial === 'dc' ? 'selected' : '' ?>>DC Comics</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="anio_desde" class="form-label fw-bold small text-muted">Año Desde</label>
+                <input type="number" class="form-control" id="anio_desde" name="anio_desde" value="<?= $anio_desde ?>" placeholder="Ej: 1986">
+            </div>
+            <div class="col-12 text-end">
+                <button type="submit" name="buscar" value="1" class="btn btn-primary fw-bold">🔍 Buscar (GET)</button>
             </div>
         </div>
+    </form>
 
-        <!-- Columna Derecha: Resumen de Búsqueda y Sugerencias -->
-        <div class="col-lg-4">
-            <!-- Card: Tu Búsqueda -->
-            <div class="card border-0 shadow-sm p-4 bg-white mb-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="h6 fw-bold m-0 text-dark">Tu búsqueda</h4>
-                    <span class="badge bg-secondary">4 filtros</span>
-                </div>
-
-                <div class="small">
-                    <div class="mb-2">
-                        <span class="text-muted d-block text-uppercase">Palabra clave</span>
-                        <span class="fw-bold">Batman</span>
-                    </div>
-                    <div class="mb-2">
-                        <span class="text-muted d-block text-uppercase">Editoriales</span>
-                        <span class="fw-bold">DC Comics, ECC Ediciones</span>
-                    </div>
-                    <div class="mb-2">
-                        <span class="text-muted d-block text-uppercase">Publicación original</span>
-                        <span class="fw-bold">1986 — 2024</span>
-                    </div>
-                    <div class="mb-3">
-                        <span class="text-muted d-block text-uppercase">Arcos argumentales</span>
-                        <span class="fw-bold">Origen, Grandes eventos</span>
-                    </div>
-                </div>
-
-                <p class="text-muted small border-top pt-3 mb-0">
-                    💡 Aplica los filtros para ver los cómics que coinciden con tu búsqueda.
-                </p>
-            </div>
-
-            <!-- Card: Una pauta para explorar -->
-            <div class="card border-0 shadow-sm p-4 bg-primary bg-opacity-10">
-                <h4 class="h6 fw-bold text-primary mb-2">💡 Una pauta para explorar</h4>
-                <p class="text-muted small mb-3">
-                    ¿No estás seguro de dónde empezar? Combina un personaje con «Origen» para descubrir sus primeras historias.
-                </p>
-                <a href="cronologias.php" class="small fw-bold text-primary text-decoration-none">Guía de arcos argumentales &rarr;</a>
-            </div>
+    <!-- Retroalimentación / Resultados sanitizados -->
+    <?php if ($busqueda_realizada): ?>
+        <div class="alert alert-info shadow-sm">
+            <strong>Búsqueda procesada (Sanitizada contra XSS):</strong><br>
+            • Término: "<?= $query ?: 'Todos los cómics' ?>"<br>
+            • Editorial: <?= strtoupper($editorial) ?><br>
+            <?php if (!empty($anio_desde)): ?>• Año Desde: <?= $anio_desde ?><?php endif; ?>
         </div>
-    </div>
+    <?php endif; ?>
 </main>
 
-<?php 
-// Inclusión del pie de página dinámico (SSI - Requisito B.3 del TP4)
-require_once __DIR__ . '/includes/footer.php'; 
-?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

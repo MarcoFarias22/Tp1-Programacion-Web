@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro de Discusión - CÓMIC HUB</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+    <!-- Cabecera / Navegación -->
+    <header class="bg-white border-bottom shadow-sm py-3 mb-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <h1 class="h4 text-primary m-0 fw-bold">CÓMIC HUB 🔍</h1>
+            <nav class="mt-3 mt-md-0">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-dark" href="index.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="cronologias.html">Cronologías</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="personajes.html">Personajes</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="acerca-de.html">Acerca de</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold border-bottom border-primary border-2" href="foro.html">Foro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container my-4 flex-grow-1">
+        <!-- Migas de pan -->
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb mb-0 small text-muted">
+                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Comunidad</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Foro de discusión</li>
+            </ol>
+        </nav>
+
+        <!-- Encabezado + Botón Crear Hilo -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+            <div>
+                <h2 class="fw-bold text-dark mb-1">Las mejores historias se comparten.</h2>
+                <p class="text-muted m-0">Debate, comparte teorías y descubre nuevas lecturas con la comunidad.</p>
+            </div>
+            <button class="btn btn-primary text-nowrap fw-bold px-3">+ Crear un hilo</button>
+        </div>
+
+        <div class="row g-4">
+            <!-- Columna Izquierda: Buscador, Pestañas y Lista de Hilos -->
+            <div class="col-lg-8">
+                <!-- Buscador y Filtro por Categorías -->
+                <div class="row g-2 mb-3">
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" placeholder="Buscar por título, autor o palabra clave...">
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-select">
+                            <option selected>Todas las categorías</option>
+                            <option value="general">General</option>
+                            <option value="recomendaciones">Recomendaciones</option>
+                            <option value="debates">Debates y teorías</option>
+                            <option value="coleccionismo">Coleccionismo</option>
+                            <option value="novedades">Novedades</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Pestañas de Orden / Filtro -->
+                <div class="bg-white rounded p-3 shadow-sm mb-4 border">
+                    <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                        <ul class="nav nav-pills gap-2">
+                            <li class="nav-item"><a class="nav-link active btn-sm" href="#">Recientes</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark btn-sm" href="#">Populares</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark btn-sm" href="#">Sin respuestas</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark btn-sm" href="#">Mis hilos</a></li>
+                        </ul>
+                        <span class="text-muted small">248 hilos</span>
+                    </div>
+
+                    <!-- Lista de Discusiones / Hilos -->
+                    <div class="list-group list-group-flush">
+                        
+                        <!-- Hilo 1 (Fijado) -->
+                        <div class="list-group-item px-0 py-3">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <span class="badge bg-primary me-1">📌 Fijado</span>
+                                    <span class="badge bg-secondary text-white me-2">General</span>
+                                    <h3 class="h6 fw-bold mb-1 mt-1">
+                                        <a href="#" class="text-dark text-decoration-none">¿Qué estás leyendo? Comparte tu lectura de octubre</a>
+                                    </h3>
+                                    <p class="text-muted small mb-0">Por <strong>Martín Rivas</strong></p>
+                                </div>
+                                <div class="text-end text-muted small ps-3">
+                                    <span>01 oct 2026</span><br>
+                                    <span class="fw-bold text-dark">💬 128</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hilo 2 -->
+                        <div class="list-group-item px-0 py-3">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <span class="badge bg-info text-dark me-2">Recomendaciones</span>
+                                    <h3 class="h6 fw-bold mb-1 mt-1">
+                                        <a href="detalle-hilo.html" class="text-dark text-decoration-none">Batman: ¿Año Uno o El largo Halloween para empezar?</a>
+                                    </h3>
+                                    <p class="text-muted small mb-0">Por <strong>Diego Martín</strong></p>
+                                </div>
+                                <div class="text-end text-muted small ps-3">
+                                    <span>30 oct 2026</span><br>
+                                    <span class="fw-bold text-dark">💬 24</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hilo 3 -->
+                        <div class="list-group-item px-0 py-3">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <span class="badge bg-warning text-dark me-2">Debates y teorías</span>
+                                    <h3 class="h6 fw-bold mb-1 mt-1">
+                                        <a href="#" class="text-dark text-decoration-none">El final de Watchmen, ¿ha cambiado vuestra opinión?</a>
+                                    </h3>
+                                    <p class="text-muted small mb-0">Por <strong>Lucía Vega</strong></p>
+                                </div>
+                                <div class="text-end text-muted small ps-3">
+                                    <span>30 oct 2026</span><br>
+                                    <span class="fw-bold text-dark">💬 36</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hilo 4 -->
+                        <div class="list-group-item px-0 py-3">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <span class="badge bg-info text-dark me-2">Recomendaciones</span>
+                                    <h3 class="h6 fw-bold mb-1 mt-1">
+                                        <a href="#" class="text-dark text-decoration-none">Manga autoconclusivos para un fin de semana</a>
+                                    </h3>
+                                    <p class="text-muted small mb-0">Por <strong>Pedro Gil</strong></p>
+                                </div>
+                                <div class="text-end text-muted small ps-3">
+                                    <span>29 oct 2026</span><br>
+                                    <span class="fw-bold text-dark">💬 18</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hilo 5 -->
+                        <div class="list-group-item px-0 py-3">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <span class="badge bg-dark me-2">Coleccionismo</span>
+                                    <h3 class="h6 fw-bold mb-1 mt-1">
+                                        <a href="#" class="text-dark text-decoration-none">¿Cómo protegéis las grapas de vuestra colección?</a>
+                                    </h3>
+                                    <p class="text-muted small mb-0">Por <strong>Elena Moliner</strong></p>
+                                </div>
+                                <div class="text-end text-muted small ps-3">
+                                    <span>29 oct 2026</span><br>
+                                    <span class="fw-bold text-dark">💬 12</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hilo 6 -->
+                        <div class="list-group-item px-0 py-3">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <span class="badge bg-danger me-2">Novedades</span>
+                                    <h3 class="h6 fw-bold mb-1 mt-1">
+                                        <a href="#" class="text-dark text-decoration-none">La nueva etapa de X-Men: primeras impresiones</a>
+                                    </h3>
+                                    <p class="text-muted small mb-0">Por <strong>Álex Torres</strong></p>
+                                </div>
+                                <div class="text-end text-muted small ps-3">
+                                    <span>29 oct 2026</span><br>
+                                    <span class="fw-bold text-dark">💬 31</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Paginación -->
+                    <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-3">
+                        <span class="text-muted small">Mostrando 1-6 de 248 hilos</span>
+                        <nav>
+                            <ul class="pagination pagination-sm m-0">
+                                <li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Siguiente &raquo;</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Menú Lateral de la Comunidad y Stats -->
+            <div class="col-lg-4">
+                
+                <!-- Card: Categorías la Comunidad -->
+                <div class="card border-0 shadow-sm p-3 bg-white mb-4">
+                    <h4 class="h6 fw-bold text-dark mb-3">Explora la comunidad</h4>
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action border-0 rounded d-flex justify-content-between align-items-center active mb-1">
+                            <span>💬 Todos los hilos</span>
+                            <span class="badge bg-light text-primary rounded-pill">248</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action border-0 rounded d-flex justify-content-between align-items-center mb-1">
+                            <span>🗨️ General</span>
+                            <span class="badge bg-light text-muted rounded-pill">45</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action border-0 rounded d-flex justify-content-between align-items-center mb-1">
+                            <span>📚 Recomendaciones</span>
+                            <span class="badge bg-light text-muted rounded-pill">84</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action border-0 rounded d-flex justify-content-between align-items-center mb-1">
+                            <span>💡 Debates y Teorías</span>
+                            <span class="badge bg-light text-muted rounded-pill">27</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action border-0 rounded d-flex justify-content-between align-items-center mb-1">
+                            <span>📦 Coleccionismo</span>
+                            <span class="badge bg-light text-muted rounded-pill">38</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action border-0 rounded d-flex justify-content-between align-items-center">
+                            <span>📣 Novedades</span>
+                            <span class="badge bg-light text-muted rounded-pill">54</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card: Normas de la comunidad -->
+                <div class="card border-0 shadow-sm p-3 bg-primary bg-opacity-10 mb-4">
+                    <h4 class="h6 fw-bold text-primary mb-2">💜 Un buen debate empieza contigo</h4>
+                    <p class="text-muted small mb-2">
+                        Respeta otras opiniones, avisa de los spoilers y busca en el foro antes de abrir un hilo.
+                    </p>
+                    <a href="#" class="small fw-bold text-primary text-decoration-none">Normas de la comunidad &rarr;</a>
+                </div>
+
+                <!-- Card: Estadísticas -->
+                <div class="card border-0 shadow-sm p-3 bg-white">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="spinner-grow spinner-grow-sm text-success" role="status"></span>
+                        <span class="text-muted small">22 lectores conectados</span>
+                    </div>
+                    <div class="row text-center border-top pt-3">
+                        <div class="col-6 border-end">
+                            <span class="h4 fw-bold text-dark d-block mb-0">1.284</span>
+                            <span class="text-muted small">Miembros</span>
+                        </div>
+                        <div class="col-6">
+                            <span class="h4 fw-bold text-dark d-block mb-0">3.612</span>
+                            <span class="text-muted small">Respuestas</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-white border-top text-center py-3 mt-5">
+        <div class="container">
+            <p class="text-muted m-0 small">&copy; 2026 CÓMIC HUB. Todos los derechos reservados. TP3 - Programación Web.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

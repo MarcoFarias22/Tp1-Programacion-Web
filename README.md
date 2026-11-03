@@ -1,4 +1,9 @@
-## 🔄 Evolución del Proyecto (Diferencias entre TP2 / TP3 / TP4 / TP5)
+## 🔄 Evolución del Proyecto (Diferencias entre TP1 / TP2 / TP3 / TP4 / TP5)
+
+## 🎨 Diseño y Prototipado (TP1)
+
+- **Prototipo Interactivo en Figma:** [Ver prototipo en Figma](https://www.figma.com/design/5BKQgl8KkOb1KteYsUIHvK/Comic-Hub?node-id=0-1&p=f&t=dIOoDC4gvRuB2X9w-0)
+- **Bocetos e Historias de Usuario:** Disponibles en la documentación del repositorio.
 
 ### 📌 TP2 / TP3 (Maquetación Estática & Git Workflow)
 - **Tecnologías:** HTML5 estático, CSS3 y Bootstrap 5.

@@ -62,3 +62,32 @@ Todo el desarrollo correspondiente a esta entrega se encuentra en la carpeta obl
 - **Seguridad Estricta:**
   - **Anti-SQL Injection:** Uso exclusivo de **Consultas Preparadas** (`PDO::prepare`) con marcadores de parámetros.
   - **Anti-XSS:** Sanitización previa a la renderización en las tablas HTML.
+
+  ---
+
+### 🔑 TP8: Manejo de Estado, Sesiones y Autenticación de Usuarios
+- **Persistencia de Sesión:** Implementación del manejo de estado global con superglobal `$_SESSION` y cookies de sesión.
+- **Módulo de Registro (`registro.php`):** 
+  - Formulario con sanitización estricta de entradas XSS.
+  - Verificación previa de email duplicado en la base de datos MySQL.
+  - Encriptación y hashing seguro de contraseñas con `password_hash($password, PASSWORD_BCRYPT)` según pautas OWASP.
+- **Módulo de Autenticación (`login.php`):** 
+  - Verificación de credenciales con `password_verify()`.
+  - Mitigación de ataques de fijación de sesión mediante `session_regenerate_id(true)`.
+- **Guardián de Rutas & Roles (`includes/auth_guard.php`):**
+  - Script reutilizable para proteger vistas privadas (`isset($_SESSION['usuario_id'])`).
+  - Control de acceso basado en roles (`requerir_rol('admin')`) restringiendo el panel administrador `/admin/`.
+- **Cierre de Sesión Seguro (`logout.php`):**
+  - Limpieza de `$_SESSION`, invalidación y borrado de cookies del navegador y destrucción con `session_destroy()`.
+- **Interfaz Dinámica (`includes/header.php`):**
+  - Renderizado condicional en la cabecera mostrando botones de *Iniciar Sesión* / *Registrarse* (modo visitante) o la insignia del usuario logueado (`👤 Nombre [Admin]`), enlace al *Panel Admin* y botón *Salir*.
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+- **Front-End:** HTML5, CSS3, JavaScript, Bootstrap 5.
+- **Back-End:** PHP 8.x (Server-Side Includes & SSR).
+- **Base de Datos:** MySQL 8.x / MariaDB (XAMPP).
+- **Acceso a Datos:** PDO (PHP Data Objects) con Prepared Statements.
+- **Seguridad:** Hashing Bcrypt, OWASP Top 10 (Anti-XSS y Anti-SQLi), Session Fixation Protection.
+- **Control de Versiones:** Git & GitHub.

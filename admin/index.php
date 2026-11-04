@@ -1,6 +1,9 @@
 <?php
 // admin/index.php
-require_once '../config/conexion.php';
+require_once __DIR__ . '/../includes/auth_guard.php';
+requerir_rol('administrador'); // Restringe el acceso solo a administradores[cite: 1]
+require_once __DIR__ . '/../config/conexion.php';
+
 
 // Consulta segura con JOIN a Editoriales
 $sql = "SELECT c.id_comic, c.titulo, c.sinopsis, c.anio_publicacion, e.nombre AS editorial 

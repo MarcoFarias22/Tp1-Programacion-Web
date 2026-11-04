@@ -42,3 +42,23 @@ Todo el desarrollo correspondiente a esta entrega se encuentra en la carpeta obl
 3. **Seguridad Web & Sanitización OWASP (XSS):**
    - Helper centralizado en `includes/functions.php`.
    - Limpieza de entradas `$_POST` y `$_GET` utilizando `htmlspecialchars()`, `trim()` y `stripslashes()`.
+   
+---
+
+### 🗄️ TP6: Diseño y Normalización del Esquema Relacional en MySQL
+- **Normalización Aplicada (1FN, 2FN y 3FN):** Descomposición de la tabla inicial no normalizada para eliminar redundancias y dependencias transitivas (documentado en `tp6/NORMALIZACION.md`).
+- **Script DDL (`tp6/schema.sql`):** Creación de la base de datos `comic_hub_db` en MySQL con claves primarias autoincrementales (`PK`), restricciones de integridad referencial (`FK`) e índices explícitos de optimización (`CREATE INDEX`).
+- **Script DML (`tp6/consultas.sql`):** Definición de consultas de prueba CRUD e inserciones relacionales utilizando `INNER JOIN`.
+
+---
+
+### 🔒 TP7: Persistencia y Conexión Segura PHP-MySQL (PDO)
+- **Conexión Segura (`config/conexion.php`):** Instancia de **PDO** configurada con manejo de excepciones `try-catch`, modo de errores estricto y juego de caracteres `utf8mb4`.
+- **Módulo CRUD Completo (`admin/`):**
+  - **Create (`crear.php`):** Alta de cómics asociando claves foráneas dinámicas (editoriales).
+  - **Read (`index.php`):** Lectura del catálogo persistido mediante consultas SQL con `JOIN`.
+  - **Update (`editar.php`):** Edición de registros existentes recuperando parámetros de la BD.
+  - **Delete (`eliminar.php`):** Eliminación de registros de prueba con confirmación de usuario.
+- **Seguridad Estricta:**
+  - **Anti-SQL Injection:** Uso exclusivo de **Consultas Preparadas** (`PDO::prepare`) con marcadores de parámetros.
+  - **Anti-XSS:** Sanitización previa a la renderización en las tablas HTML.

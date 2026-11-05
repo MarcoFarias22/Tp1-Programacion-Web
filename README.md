@@ -63,6 +63,15 @@ Portal web interactivo para fanáticos y coleccionistas de cómics (Marvel, DC C
 
 ---
 
+### 🏗️ TP10: Refactorización a MVC e Introducción a Frameworks
+- **Parte A (Arquitectura MVC Nativa):**
+  - Refactorización modular del proyecto en `app/Models/`, `app/Views/` y `app/Controllers/`.
+  - Consultas SQL seguras con PDO y Prepared Statements abstraídas en clases Modelo.
+  - Implementación de Front Controller en `index.php` para el enrutamiento de peticiones (`index` y `ver`).
+- **Parte B (Módulo en Framework PHP):**
+  - Implementación de módulo independiente en `framework-module/` siguiendo convenciones de framework (Laravel/CodeIgniter).
+  - Configuración de Routing (`routes/api.php`), Controlador (`ReporteController.php`), Modelo ORM Eloquent (`Editorial.php`) y Vista (`index.blade.php`).
+
 ## 🛠️ Tecnologías Utilizadas
 - **Front-End:** HTML5, CSS3, JavaScript, Bootstrap 5.
 - **Back-End:** PHP 8.x (Server-Side Includes & SSR).

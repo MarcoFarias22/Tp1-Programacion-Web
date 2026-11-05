@@ -1,86 +1,65 @@
-## 🔄 Evolución del Proyecto (Diferencias entre TP1 / TP2 / TP3 / TP4 / TP5)
+# 📚 CÓMIC HUB - Portal de Cómics y Comunidad
+
+Portal web interactivo para fanáticos y coleccionistas de cómics (Marvel, DC Comics y más), diseñado para organizar cronologías de lectura, explorar catálogos editoriales, gestionar colecciones y debatir en comunidad.
+
+---
 
 ## 🎨 Diseño y Prototipado (TP1)
-
-- **Prototipo Interactivo en Figma:** [Ver prototipo en Figma](https://www.figma.com/design/5BKQgl8KkOb1KteYsUIHvK/Comic-Hub?node-id=0-1&p=f&t=dIOoDC4gvRuB2X9w-0)
-- **Bocetos e Historias de Usuario:** Disponibles en la documentación del repositorio.
-
-### 📌 TP2 / TP3 (Maquetación Estática & Git Workflow)
-- **Tecnologías:** HTML5 estático, CSS3 y Bootstrap 5.
-- **Estructura:** 10 vistas individuales `.html` independientes.
-- **Navegación:** Código de menú (`<header>`) y pie de página (`<footer>`) duplicado manualmente en cada archivo HTML.
-- **Auditoría:** Reporte de Lighthouse para accesibilidad (A11y), SEO y semántica HTML5.
+- **Prototipo Interactivo en Figma:** [Ver Prototipo en Figma](https://www.figma.com/design/5BKQgl8KkOb1KteYsUIHvK/Comic-Hub?node-id=0-1&p=f&t=dIOoDC4gvRuB2X9w-0)[cite: 14]
+- **Bocetos e Historias de Usuario:** Definición de wireframes, arquitectura de la información y requerimientos iniciales[cite: 14].
 
 ---
 
-### 📌 TP4 (Migración a PHP & SSI - Server Side Includes)
-- **Tecnologías:** PHP (Lado Servidor), XAMPP / Laragon (Apache).
-- **Modularización (SSI):** Extraídos componentes reutilizables a la carpeta `/includes/`:
-  - `header.php`: Apertura de `<html>`, `<head>`, carga de Bootstrap/CSS y cabecera global.
-  - `nav.php`: Menú de navegación dinámico que detecta automáticamente la página activa (`PHP_SELF`) para resaltarla.
-  - `footer.php`: Pie de página unificado con copyright y año generado dinámicamente (`<?= date('Y') ?>`).
-- **Renderizado Dinámico (SSR Básico):** Manejo de la variable `$titulo_pagina` en cada vista para cambiar dinámicamente la etiqueta `<title>` en el navegador.
-- **Formato:** Migración completa de extensiones `.html` a `.php` y eliminación de código redundante.
+## 🚀 Historial de Evolución del Proyecto (TP1 - TP9)
+
+### 💻 TP2 y TP3: Maquetación Front-End, Bootstrap 5 y Git Workflow
+- **Tecnologías:** HTML5 semántico, CSS3 y Bootstrap 5[cite: 13, 14].
+- **Estructura:** Maquetación responsiva de las vistas principales del sistema[cite: 13, 14].
+- **Control de Versiones:** Flujo Git basado en ramas `feature/`, Pull Requests y merges hacia `main`[cite: 13, 14].
+- **Auditoría de Calidad:** Evaluación de accesibilidad (A11y), SEO y semántica mediante **Lighthouse** (documentada en `AUDITORIA.md`)[cite: 13, 14].
 
 ---
 
-## 🔒 Entrega Clase 5 / TP N.º 5: Procesamiento de Formularios y Seguridad Web (PHP & OWASP Top 10)
+### ⚙️ TP4: Migración a Backend en PHP & Modularización SSI (Server Side Includes)
+- **Entorno:** Servidor local Apache en XAMPP (`htdocs/COMIC-HUB/`)[cite: 13, 14].
+- **Migración a PHP:** Conversión de archivos estáticos `.html` a páginas dinámicas `.php`[cite: 13, 14].
+- **Arquitectura SSI:** Extracción de componentes reutilizables a la carpeta `/includes/` (`header.php`, `nav.php`, `footer.php`)[cite: 13, 14].
+- **Server-Side Rendering (SSR Básico):** Gestión de la variable `$titulo_pagina` para personalizar dinámicamente el `<title>` de cada vista[cite: 13, 14].
 
-Todo el desarrollo correspondiente a esta entrega se encuentra en la carpeta obligatoria `/clase5/`.
+---
 
-### 🛠️ Funcionalidades e Implementaciones
-1. **Envío por POST (`acerca-de.php`):**
-   - Formulario de contacto y sugerencias.
-   - Validación en servidor (`empty()`, formato de email con `validar_email()`).
-   - Mantenimiento de la persistencia de datos en inputs tras fallos de validación.
-   - Mensajes visuales de retroalimentación (alertas Bootstrap de éxito/error).
+### 🛡️ TP5: Procesamiento de Formularios y Seguridad Web (OWASP Top 10)
+- **Procesamiento HTTP:** Captura por `POST` (`acerca-de.php`) y filtros `GET` (`busqueda-avanzada.php`)[cite: 13, 14].
+- **Seguridad OWASP (Anti-XSS):** Helper de sanitización en `includes/functions.php` con `htmlspecialchars()`, `trim()` y `stripslashes()`[cite: 13, 14].
+- **Persistencia & UX:** Retención de datos ingresados ante errores y mensajes de retroalimentación dinámicos[cite: 13, 14].
 
-2. **Envío por GET (`busqueda-avanzada.php`):**
-   - Módulo de filtro y búsqueda dinámica por título, editorial y año.
-   - Captura y rendering sanitizado de parámetros recibidos vía URL (`$_GET`).
-
-3. **Seguridad Web & Sanitización OWASP (XSS):**
-   - Helper centralizado en `includes/functions.php`.
-   - Limpieza de entradas `$_POST` y `$_GET` utilizando `htmlspecialchars()`, `trim()` y `stripslashes()`.
-   
 ---
 
 ### 🗄️ TP6: Diseño y Normalización del Esquema Relacional en MySQL
-- **Normalización Aplicada (1FN, 2FN y 3FN):** Descomposición de la tabla inicial no normalizada para eliminar redundancias y dependencias transitivas (documentado en `tp6/NORMALIZACION.md`).
-- **Script DDL (`tp6/schema.sql`):** Creación de la base de datos `comic_hub_db` en MySQL con claves primarias autoincrementales (`PK`), restricciones de integridad referencial (`FK`) e índices explícitos de optimización (`CREATE INDEX`).
-- **Script DML (`tp6/consultas.sql`):** Definición de consultas de prueba CRUD e inserciones relacionales utilizando `INNER JOIN`.
+- **Normalización Aplicada (3FN):** Descomposición relacional documentada en `tp6/NORMALIZACION.md`[cite: 13, 14].
+- **Scripts DDL/DML:** Creación de la BD `comic_hub_db` (`tp6/schema.sql`) con PK, FK e índices explícitos, más consultas de prueba CRUD (`tp6/consultas.sql`)[cite: 13, 14].
 
 ---
 
 ### 🔒 TP7: Persistencia y Conexión Segura PHP-MySQL (PDO)
-- **Conexión Segura (`config/conexion.php`):** Instancia de **PDO** configurada con manejo de excepciones `try-catch`, modo de errores estricto y juego de caracteres `utf8mb4`.
-- **Módulo CRUD Completo (`admin/`):**
-  - **Create (`crear.php`):** Alta de cómics asociando claves foráneas dinámicas (editoriales).
-  - **Read (`index.php`):** Lectura del catálogo persistido mediante consultas SQL con `JOIN`.
-  - **Update (`editar.php`):** Edición de registros existentes recuperando parámetros de la BD.
-  - **Delete (`eliminar.php`):** Eliminación de registros de prueba con confirmación de usuario.
-- **Seguridad Estricta:**
-  - **Anti-SQL Injection:** Uso exclusivo de **Consultas Preparadas** (`PDO::prepare`) con marcadores de parámetros.
-  - **Anti-XSS:** Sanitización previa a la renderización en las tablas HTML.
+- **Conexión Segura (`config/conexion.php`):** Instancia PDO con try-catch y charset `utf8mb4`[cite: 13, 14].
+- **Módulo CRUD Completo (`admin/`):** Operaciones de Altas, Lecturas, Ediciones y Bajas integradas a MySQL[cite: 13, 14].
+- **Seguridad Anti-SQLi:** Uso exclusivo de **Consultas Preparadas** (`PDO::prepare`)[cite: 13, 14].
 
-  ---
+---
 
 ### 🔑 TP8: Manejo de Estado, Sesiones y Autenticación de Usuarios
-- **Persistencia de Sesión:** Implementación del manejo de estado global con superglobal `$_SESSION` y cookies de sesión.
-- **Módulo de Registro (`registro.php`):** 
-  - Formulario con sanitización estricta de entradas XSS.
-  - Verificación previa de email duplicado en la base de datos MySQL.
-  - Encriptación y hashing seguro de contraseñas con `password_hash($password, PASSWORD_BCRYPT)` según pautas OWASP.
-- **Módulo de Autenticación (`login.php`):** 
-  - Verificación de credenciales con `password_verify()`.
-  - Mitigación de ataques de fijación de sesión mediante `session_regenerate_id(true)`.
-- **Guardián de Rutas & Roles (`includes/auth_guard.php`):**
-  - Script reutilizable para proteger vistas privadas (`isset($_SESSION['usuario_id'])`).
-  - Control de acceso basado en roles (`requerir_rol('admin')`) restringiendo el panel administrador `/admin/`.
-- **Cierre de Sesión Seguro (`logout.php`):**
-  - Limpieza de `$_SESSION`, invalidación y borrado de cookies del navegador y destrucción con `session_destroy()`.
-- **Interfaz Dinámica (`includes/header.php`):**
-  - Renderizado condicional en la cabecera mostrando botones de *Iniciar Sesión* / *Registrarse* (modo visitante) o la insignia del usuario logueado (`👤 Nombre [Admin]`), enlace al *Panel Admin* y botón *Salir*.
+- **Persistencia de Sesión:** Manejo de estado con `$_SESSION` y regeneración de ID contra Session Fixation[cite: 14].
+- **Módulo de Registro e Ingreso:** Hashing seguro de contraseñas con `password_hash($password, PASSWORD_BCRYPT)` y verificación con `password_verify()`[cite: 14].
+- **Guardián de Rutas & Roles (`includes/auth_guard.php`):** Control de acceso a paneles protegidos (`/admin/`) por rol[cite: 14].
+- **Interfaz Dinámica (`includes/header.php`):** Renderizado condicional mostrando login/registro o insignia del usuario autenticado[cite: 14].
+
+---
+
+### ⚡ TP9: Comunicación Asincrónica y APIs (AJAX & JSON)
+- **Endpoint Backend JSON (`api/buscar_comics.php`):** Configuración de cabeceras HTTP `Content-Type: application/json`, consultas preparadas PDO con marcadores flexibles y estructuración JSON mediante `json_encode()`[cite: 1].
+- **Consumo Frontend (`js/buscar_comics.js`):** Peticiones asincrónicas en tiempo real con **Fetch API** (`async/await`), manejo de errores de red con `try...catch` y técnica de debounce para optimización[cite: 1].
+- **Manipulación Dinámica del DOM (`busqueda-avanzada.php`):** Inyección reactiva de tarjetas e información en pantalla sin recargar la página completa[cite: 1, 4].
 
 ---
 

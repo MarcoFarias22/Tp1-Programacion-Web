@@ -29,10 +29,27 @@ Portal web interactivo para fanáticos y coleccionistas de cómics (Marvel, DC C
 
 ---
 
-### 🛡️ TP5: Procesamiento de Formularios y Seguridad Web (OWASP Top 10)
-- **Procesamiento HTTP:** Captura por `POST` (`acerca-de.php`) y filtros `GET` (`busqueda-avanzada.php`).
-- **Seguridad OWASP (Anti-XSS):** Helper de sanitización en `includes/functions.php` con `htmlspecialchars()`, `trim()` y `stripslashes()`.
-- **Persistencia & UX:** Retención de datos ingresados ante errores y mensajes de retroalimentación dinámicos.
+## 📸 5. Evidencia de Funcionamiento (Capturas de Pantalla)
+
+### 🖥️ Servidor Local y Estructura SSI (TP4)
+- **Servidor Local Ejecutándose:**
+  ![Servidor Local](img/screenshots/localhost_ejecucion.png)
+  *Sitio corriendo en el navegador bajo la dirección http://localhost/COMIC-HUB/*
+
+- **Estructura Modular SSI:**
+  ![Estructura Modular](img/screenshots/estructura_ssi.png)
+  *División del código fuente en plantillas (header.php, nav.php, footer.php)*
+
+---
+
+### 🛡️ Procesamiento de Formularios y Seguridad Web (TP5)
+- **Formulario POST (Contacto) y Mensajes de Validación:**
+  ![Formulario POST](img/screenshots/formulario_post_validacion.png)
+  *Demostración del envío POST, persistencia de datos y alertas de retroalimentación.*
+
+- **Formulario GET (Búsqueda Avanzada) y Sanitización XSS:**
+  ![Formulario GET](img/screenshots/busqueda_get_sanitizada.png)
+  *Filtro de búsqueda GET y mensajes de sanitización activos.*
 
 ---
 

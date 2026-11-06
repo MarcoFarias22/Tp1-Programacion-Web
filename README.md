@@ -96,6 +96,7 @@ Sigue estos pasos para clonar el repositorio y ejecutar la aplicación en un ser
 ```
 
 2. **Acceder a la Carpeta del Proyecto:**
+
 ```bash
 cd COMIC-HUB
 

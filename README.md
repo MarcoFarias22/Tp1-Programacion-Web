@@ -163,7 +163,20 @@ http://localhost/COMIC-HUB/index.php
 
 ```
 
+## 🌐 Despliegue en la Nube (Prueba en Vivo)
 
+El proyecto se encuentra desplegado y plenamente operativo en un servidor de producción Apache con soporte PHP y base de datos MySQL (InfinityFree).
+
+- **URL de Producción:** [http://comic-hub-tp.nfy.fyi](http://comic-hub-tp.nfy.fyi)
+- **Estado del Servicio:** Activo 🟢
+
+### 🧪 Credenciales de Prueba para Acceso al Panel Admin
+
+Para evaluar el Módulo de Autenticación, Control de Acceso por Roles y la Gestión CRUD , puedes utilizar la siguiente cuenta de prueba:
+
+- **Email:** `admin@comichub.com`
+- **Contraseña:** `admin123` (o la contraseña definida para el usuario de pruebas)
+- **Rol:** Administrador (`id_rol = 1`)
 
 ---
 

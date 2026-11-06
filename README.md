@@ -33,22 +33,22 @@ Portal web interactivo para fanáticos y coleccionistas de cómics (Marvel, DC C
 
 ### 🖥️ Servidor Local y Estructura SSI (TP4)
 - **Servidor Local Ejecutándose:**
-  ![Servidor Local](img/screenshots/localhost_ejecucion.png)
+  ![Servidor Local](docs/screenshots/1.png)
   *Sitio corriendo en el navegador bajo la dirección http://localhost/COMIC-HUB/*
 
 - **Estructura Modular SSI:**
-  ![Estructura Modular](img/screenshots/estructura_ssi.png)
+  ![Estructura Modular](docs/screenshots/14.png)
   *División del código fuente en plantillas (header.php, nav.php, footer.php)*
 
 ---
 
 ### 🛡️ Procesamiento de Formularios y Seguridad Web (TP5)
 - **Formulario POST (Contacto) y Mensajes de Validación:**
-  ![Formulario POST](img/screenshots/formulario_post_validacion.png)
+  ![Formulario POST](docs/screenshots/12.png)
   *Demostración del envío POST, persistencia de datos y alertas de retroalimentación.*
 
 - **Formulario GET (Búsqueda Avanzada) y Sanitización XSS:**
-  ![Formulario GET](img/screenshots/busqueda_get_sanitizada.png)
+  ![Formulario GET](docs/screenshots/13.png)
   *Filtro de búsqueda GET y mensajes de sanitización activos.*
 
 ---

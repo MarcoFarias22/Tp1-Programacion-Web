@@ -167,7 +167,7 @@ http://localhost/COMIC-HUB/index.php
 
 El proyecto se encuentra desplegado y plenamente operativo en un servidor de producción Apache con soporte PHP y base de datos MySQL (InfinityFree).
 
-- **URL de Producción:** [http://comic-hub-tp.nfy.fyi](http://comic-hub-tp.nfy.fyi)
+- **URL de Producción:** [http://comic-hub-tp.nfy.fyi](comic-hub-tp.nfy.fyi)
 - **Estado del Servicio:** Activo 🟢
 
 ### 🧪 Credenciales de Prueba para Acceso al Panel Admin
